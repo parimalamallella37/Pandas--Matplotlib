@@ -72,7 +72,7 @@ plt.text(
     ha='center', fontsize=10 , fontweight='bold'
 )
 
-# plt.axis('equal')
+plt.axis('equal')
 plt.show()
 
 
