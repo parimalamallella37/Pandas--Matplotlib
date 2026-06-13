@@ -54,8 +54,19 @@ for subject in subjects:
         if x >= 60 else 'D' 
         if x >= 50 else 'E' 
         if x>=40 else 'fail')
+        
+#total marks for each student
+df['Total_Marks'] = df[[f"{subject}_Total" for subject in subjects]].sum(axis=1)
 
+#top 10 students based on total marks
+top_students = df.sort_values(by='Total_Marks', ascending=False).head(10)
+print("Top 10 Students based on Total Marks:")
+print(top_students[['Name', 'Total_Marks']])
 
+#last 10 students based on total marks
+bottom_students = df.sort_values(by='Total_Marks', ascending=False).tail(10)
+print("Bottom 10 Students based on Total Marks:")
+print(bottom_students[['Name', 'Total_Marks']])
 
 #pie chart representation to the average subjects marks of all the students
 average_marks = [df[f"{subject}_Total"].mean() for subject in subjects]
